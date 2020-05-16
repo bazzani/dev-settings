@@ -1,23 +1,9 @@
 #!/bin/bash
 alias sa='source ~/.aliasrc'
 alias va='vim ~/.aliasrc'
-alias ga ='alias | grep'
+alias ga='alias | grep'
 
 alias prj='cd ~/dev/projects/'
-alias nb='cd /c/dev/projects/setanta/ap111077-nbng-dc-hardship-withdrawal-client-app'
-alias nb2='cd /c/dev/projects/setanta/0_temp/ap111077-nbng-dc-hardship-withdrawal-client-app'
-alias nbh='cd /c/dev/projects/setanta/ap128791-nbdchardship'
-alias grboh='grb origin/feature/Hardships-R1'
-alias grbohi='grb -i origin/feature/Hardships-R1'
-alias grbioh='grbi origin/feature/Hardships-R1'
-alias gmoh='git merge origin/feature/Hardships-R1'
-alias gcoh='gc feature/Hardships-R1'
-alias nd='npm run dev'
-alias nk='npm run karma'
-alias nkh='npm run karma-headless'
-alias nre='npm run e2e'
-alias nrb='npm run build'
-alias gloh='glg origin/feature/Hardships-R1'
 alias aws='"C:\dev\tools\AWSCLI\aws.exe"'
 
 alias cc='clear'
@@ -61,7 +47,6 @@ alias gdc='git diff -w --cached'
 alias gdsh1='git diff -w --stat HEAD~1'
 alias gds='git diff -w --stat'
 alias gdss='git diff -w --shortstat'
-alias gdsh='git diff -w origin/feature/Hardships-R1 --shortstat'
 
 alias gfp='git fetch -t --prune;git pull --no-commit --rebase'
 
@@ -118,6 +103,7 @@ alias mcis='mvn clean install -DskipTests'
 alias mciss='mvn clean install -Dmaven.test.skip=true'
 alias mcp='mvn clean package'
 alias mcps='mvn clean package -DskipTests'
+alias mcpss='mvn clean package -Dmaven.test.skip=true'
 
 alias msbr='mvn spring-boot:run'
 
@@ -128,6 +114,11 @@ alias msbr='mvn spring-boot:run'
 alias npmi='npm --loglevel info'
 alias npmv='npm --loglevel verbose'
 alias nin='npm install'
+alias nd='npm run dev'
+alias nk='npm run karma'
+alias nkh='npm run karma-headless'
+alias nre='npm run e2e'
+alias nrb='npm run build'
 ### Node/npm ::::::::::::::          ######
 
 alias psh='powershell'

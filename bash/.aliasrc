@@ -1,16 +1,15 @@
 #!/bin/bash
 alias sa='source ~/.aliasrc'
+alias va='vim ~/.aliasrc'
+alias ga='alias | grep'
 
-alias prj='cd /c/dev/projects'
+alias prj='cd ~/dev/projects/'
 alias aws='"C:\dev\tools\AWSCLI\aws.exe"'
 
 alias cc='clear'
 alias ll='ls -lah'
 alias lr='ls -larth'
 alias pwdd='pwd | sed 's:.*/::''
-
-alias bea='cd /c/BEA92/'
-alias bp='cd /c/BEA92/projects'
 
 ### Git                        ######
 alias grso='git remote show origin'
@@ -25,7 +24,8 @@ alias gaj='git add **/*.java'
 alias gc='git commit'
 alias gcmm='git commit -m'
 alias gca='git commit --amend'
-alias gcaa='git commit --amend --author "Barry Evans <barryevans80@gmail.com>"'
+alias gcaa='git commit --amend --reset-author'
+alias gcaag='git commit --amend --author "Barry Evans <barryevans80@gmail.com>"'
 alias gcad='GIT_COMMITTER_DATE="`date`" git commit --amend --date "`date`"'
 alias grb='git rebase'
 alias grbi='git rebase -i'
@@ -39,11 +39,15 @@ alias gcpa='git cherry-pick --abort'
 
 alias gb='git branch'
 alias gba='git branch -a'
+alias gbg='git branch --v | grep gone'
 
 alias gs='git status'
 alias gf='git fetch -t --prune'
 alias gd='git diff -w'
-alias gds='git diff -w --stat HEAD~1'
+alias gdc='git diff -w --cached'
+alias gdsh1='git diff -w --stat HEAD~1'
+alias gds='git diff -w --stat'
+alias gdss='git diff -w --shortstat'
 
 alias gfp='git fetch -t --prune;git pull --no-commit --rebase'
 
@@ -54,7 +58,8 @@ alias gct='git checkout --track'
 alias gcb='git checkout -b'
 
 alias gl='git log'
-alias glo='git log --oneline --all --decorate'
+alias glo='git log --oneline --decorate'
+alias gloa='git log --oneline --all --decorate'
 alias glg='git log --graph --oneline --decorate'
 alias glga='git log --graph --oneline --all --decorate'
 alias glgt='git log --graph --oneline --all --decorate -n 10'
@@ -96,8 +101,10 @@ alias mc='mvn clean'
 alias mct='mvn clean test'
 alias mci='mvn clean install'
 alias mcis='mvn clean install -DskipTests'
+alias mciss='mvn clean install -Dmaven.test.skip=true'
 alias mcp='mvn clean package'
 alias mcps='mvn clean package -DskipTests'
+alias mcpss='mvn clean package -Dmaven.test.skip=true'
 
 alias msbr='mvn spring-boot:run'
 
@@ -108,6 +115,11 @@ alias msbr='mvn spring-boot:run'
 alias npmi='npm --loglevel info'
 alias npmv='npm --loglevel verbose'
 alias nin='npm install'
+alias nd='npm run dev'
+alias nk='npm run karma'
+alias nkh='npm run karma-headless'
+alias nre='npm run e2e'
+alias nrb='npm run build'
 ### Node/npm ::::::::::::::          ######
 
 alias psh='powershell'
@@ -142,6 +154,13 @@ git-reset-hard-origin() {
 	grh origin/$s
 }
 
+alias grob='git-replace--origin-branch'
+git-replace--origin-branch() {
+	s=`git branch | grep \* | cut -d ' ' -f2-`
+	git push origin :$s
+	gpu
+}
+
 alias gro='git-rebase-origin'
 git-rebase-origin () {
 	git rebase -i origin/$1
@@ -153,6 +172,17 @@ git-rebase-origin-current () {
 	git rebase -i origin/$s
 }
 
+alias gdo='git-diff-origin'
+git-diff-origin () {
+	s=`git branch | grep \* | cut -d ' ' -f2-`
+	git diff -w origin/$s
+}
+
+alias gdos='git-diff-origin-stat'
+git-diff-origin-stat () {
+	s=`git branch | grep \* | cut -d ' ' -f2-`
+	git diff -w origin/$s --stat
+}
 
 ### Docker                            ######
 alias dk='docker kill `(docker ps -q)`'

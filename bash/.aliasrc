@@ -40,6 +40,7 @@ alias gcpa='git cherry-pick --abort'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gbg='git branch --v | grep gone'
+alias gbD='git branch -d'
 
 alias gs='git status'
 alias gf='git fetch -t --prune'

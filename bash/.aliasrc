@@ -2,6 +2,8 @@
 alias sa='source ~/.aliasrc'
 alias va='vim ~/.aliasrc'
 alias ga='alias | grep'
+alias la='less ~/.aliasrc'
+alias gp='grep'
 
 alias prj='cd ~/dev/projects/'
 alias aws='"C:\dev\tools\AWSCLI\aws.exe"'
@@ -42,12 +44,13 @@ alias gba='git branch -a'
 alias gbg='git branch --v | grep gone'
 alias gbD='git branch -d'
 
+alias s='gs'
 alias gs='git status'
 alias gf='git fetch -t --prune'
 alias gd='git diff -w'
 alias gdc='git diff -w --cached'
-alias gdsh1='git diff -w --stat HEAD~1'
 alias gds='git diff -w --stat'
+alias gds1='git diff -w --stat HEAD~1'
 alias gdss='git diff -w --shortstat'
 
 alias gfp='git fetch -t --prune;git pull --no-commit --rebase'

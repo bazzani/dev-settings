@@ -12,6 +12,7 @@ alias cc='clear'
 alias ll='ls -lah'
 alias lr='ls -larth'
 alias pwdd='pwd | sed 's:.*/::''
+alias di='diff -yw --suppress-common-lines'
 
 ### Git                        ######
 alias grso='git remote show origin'
@@ -46,6 +47,7 @@ alias gbD='git branch -d'
 
 alias s='gs'
 alias gs='git status'
+alias s='gs'
 alias gf='git fetch -t --prune'
 alias gd='git diff -w'
 alias gdc='git diff -w --cached'

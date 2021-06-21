@@ -3,3 +3,4 @@ My development environment settings, including bash settings, and many command a
 
 ## Shortcuts
 - [bash](bash)
+- [zsh](zsh)

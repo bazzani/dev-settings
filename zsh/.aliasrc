@@ -1,0 +1,252 @@
+#!/bin/zsh
+alias sa='source ~/.aliasrc'
+alias va='vim ~/.aliasrc'
+alias ga='alias | grep'
+alias la='less ~/.aliasrc'
+alias gp='grep'
+
+alias prj='cd ~/dev/projects/'
+alias aws='"C:\dev\tools\AWSCLI\aws.exe"'
+
+alias cc='clear'
+alias ll='ls -lah'
+alias lr='ls -larth'
+alias pwdd='pwd | sed "s:.*/::"'
+
+### Git                        ######
+alias grso='git remote show origin'
+alias grv='git remote -v'
+alias grvv='git remote -vv'
+alias gcl='git clone'
+
+alias gaa='git add --all'
+alias gu='git add -u'
+alias gaj='git add **/*.java'
+
+alias gc='git commit'
+alias gcmm='git commit -m'
+alias gca='git commit --amend'
+alias gcaa='git commit --amend --reset-author'
+alias gcaag='git commit --amend --author "Barry Evans <barryevans80@gmail.com>"'
+alias gcad='GIT_COMMITTER_DATE="`date`" git commit --amend --date "`date`"'
+alias grb='git rebase'
+alias grbi='git rebase -i'
+alias grb5='git rebase -i HEAD~5'
+alias grbom='grb origin/master'
+
+alias gcp='git cherry-pick'
+alias gcpc='git cherry-pick --continue'
+alias gcpa='git cherry-pick --abort'
+
+
+alias gb='git branch'
+alias gba='git branch -a'
+alias gbg='git branch --v | grep gone'
+alias gbD='git branch -d'
+
+alias s='gs'
+alias gs='git status'
+alias gf='git fetch -t --prune'
+alias gd='git diff -w'
+alias gdc='git diff -w --cached'
+alias gds='git diff -w --stat'
+alias gds1='git diff -w --stat HEAD~1'
+alias gdss='git diff -w --shortstat'
+
+alias gfp='git fetch -t --prune;git pull --no-commit --rebase'
+
+alias gc='git checkout'
+alias gcm='git checkout master'
+alias gcd='git checkout develop'
+alias gct='git checkout --track'
+alias gcb='git checkout -b'
+
+alias gl='git log'
+alias glo='git log --oneline --decorate'
+alias gloa='git log --oneline --all --decorate'
+alias glg='git log --graph --oneline --decorate'
+alias glga='git log --graph --oneline --all --decorate'
+alias glgt='git log --graph --oneline --all --decorate -n 10'
+alias glp='git log --pretty=format:"%C(yellow)%h|%Cred%ad|%Creset%an|%Cgreen%d %Creset%s" --date=short'
+alias glpd='git log --pretty=format:"%C(yellow)%h|%Cred%ad|%Creset%an|%Cgreen%d %Creset%s" --date=short --relative-date'
+
+alias gst='git stash'
+alias gsp='git stash pop'
+alias gsa='git stash apply'
+alias gss='git stash show'
+alias gsl='git stash list'
+alias gspp='git stash;git pull;git stash pop;'
+
+alias gr='git revert '
+
+alias grh='git reset --hard'
+
+alias grm='git rebase master'
+alias grom='git rebase origin/master'
+alias grd='git rebase develop'
+alias grdi='git rebase develop -i'
+alias grod='git rebase origin/develop'
+alias grodi='git rebase origin/develop -i'
+alias grc='git rebase --continue'
+alias gra='git rebase --abort'
+
+alias gpl='git pull'
+alias gup='git pull --no-commit --rebase'
+alias gupm='git pull --no-commit --rebase origin master'
+alias gpu='git push'
+alias gpf='git push --force'
+alias gpfl='git push --force-with-lease'
+alias gpft='git push --tags --force'
+### Git ::::::::::::::          ######
+
+
+### MVN ::::::::::::::          ######
+alias mc='mvn clean'
+alias mct='mvn clean test'
+alias mci='mvn clean install'
+alias mcis='mvn clean install -DskipTests'
+alias mciss='mvn clean install -Dmaven.test.skip=true'
+alias mcp='mvn clean package'
+alias mcps='mvn clean package -DskipTests'
+alias mcpss='mvn clean package -Dmaven.test.skip=true'
+
+alias msbr='mvn spring-boot:run'
+
+### MVN ::::::::::::::          ######
+
+
+### Node/npm                         ######
+alias npmi='npm --loglevel info'
+alias npmv='npm --loglevel verbose'
+alias nin='npm install'
+alias nd='npm run dev'
+alias nk='npm run karma'
+alias nkh='npm run karma-headless'
+alias nre='npm run e2e'
+alias nrb='npm run build'
+### Node/npm ::::::::::::::          ######
+
+alias psh='powershell'
+
+
+###### Bash functions ######
+sq2() {
+	squash 2
+}
+
+sq() {
+	squash $1
+}
+
+squash() {
+  git rebase -i HEAD~$1
+}
+
+gcdp() {
+	git checkout develop;
+	gup;
+}
+
+gcmp() {
+	git checkout master;
+	gup;
+}
+
+alias grho='git-reset-hard-origin'
+git-reset-hard-origin() {
+	s=`git branch | grep \* | cut -d ' ' -f2-`
+	grh origin/$s
+}
+
+alias grob='git-replace--origin-branch'
+git-replace--origin-branch() {
+	s=`git branch | grep \* | cut -d ' ' -f2-`
+	git push origin :$s
+	gpu
+}
+
+alias gro='git-rebase-origin'
+git-rebase-origin () {
+	git rebase -i origin/$1
+}
+
+alias groc='git-rebase-origin-current'
+git-rebase-origin-current () {
+	s=`git branch | grep \* | cut -d ' ' -f2-`
+	git rebase -i origin/$s
+}
+
+alias gdo='git-diff-origin'
+git-diff-origin () {
+	s=`git branch | grep \* | cut -d ' ' -f2-`
+	git diff -w origin/$s
+}
+
+alias gdos='git-diff-origin-stat'
+git-diff-origin-stat () {
+	s=`git branch | grep \* | cut -d ' ' -f2-`
+	git diff -w origin/$s --stat
+}
+
+### Docker                            ######
+alias dk='docker kill `(docker ps -q)`'
+alias dp='docker ps'
+alias dq='docker ps -q'
+alias dr='docker rm $@'
+alias did='ID=$(docker ps -q)'
+alias gbd='./gradlew build docker'
+alias gcbd='./gradlew clean build docker'
+
+alias ds='docker-stop'
+docker-stop() {
+	docker stop $(docker ps -q -f "name=$1");
+	docker rm $1;
+}
+
+
+### Productivity shortcuts            ######
+alias add-todo='add-todo-func'
+add-todo-func() {
+	echo $@ >> ~/dev/todos.txt
+}
+
+
+### Gradle                            ######
+alias bar='build-app-run'
+build-app-run () {
+	build-app; \
+	build-docker-run $1
+}
+
+alias ba='build-app'
+build-app () {
+	./gradlew build -x test;
+}
+
+alias bt='build-app-test'
+build-app-test () {
+	./gradlew clean build jacocoTestReport docker;
+}
+
+alias bd='build-docker'
+build-docker() {
+	docker build -t $1 $2
+}
+
+alias bdr='build-docker-run'
+build-docker-run () {
+	build-docker $1; \
+	docker-run $1
+}
+
+alias dcr='docker-container-run'
+docker-container-run () {
+	docker container run --rm \
+	-p 8000:8000 \
+	-p 8080:8080 \
+	-e JPDA_ADDRESS=8000 \
+	-e TOMCAT_CONNECTOR_PROXY_PORT=8080 \
+	-e TOMCAT_CONNECTOR_SCHEME=http \
+	-e TOMCAT_CONNECTOR_SECURE=false \
+	--name $1 $2
+}

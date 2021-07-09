@@ -1,4 +1,4 @@
-# bash/zsh
+#!/bin/zsh
 PROJECT_HOME=$HOME/dev/projects/dev-settings
 
 echo "Creating symlinks to files in > $HOME >...";

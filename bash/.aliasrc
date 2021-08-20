@@ -2,16 +2,21 @@
 alias sa='source ~/.aliasrc'
 alias va='vim ~/.aliasrc'
 alias ga='alias | grep'
-alias la='less ~/.aliasrc'
+#alias la='less ~/.aliasrc'
+alias la='alias | less'
 alias gp='grep'
 
 alias prj='cd ~/dev/projects/'
 alias aws='"C:\dev\tools\AWSCLI\aws.exe"'
 
 alias cc='clear'
+alias ls='ls -GF'
 alias ll='ls -lah'
-alias lr='ls -larth'
+alias lr='ls -lahrt'
+alias lss='ls -lahrs'
+
 alias pwdd='pwd | sed 's:.*/::''
+alias di='diff -yw --suppress-common-lines'
 
 ### Git                        ######
 alias grso='git remote show origin'
@@ -46,6 +51,7 @@ alias gbD='git branch -d'
 
 alias s='gs'
 alias gs='git status'
+alias s='gs'
 alias gf='git fetch -t --prune'
 alias gd='git diff -w'
 alias gdc='git diff -w --cached'

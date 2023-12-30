@@ -1,0 +1,32 @@
+hs.loadSpoon("ShiftIt")
+spoon.ShiftIt:bindHotkeys({})
+
+hs.hotkey.bind({"ctrl"}, "f6", function()
+  hs.application.open('pages.app')
+end)
+hs.hotkey.bind({"ctrl"}, "f7", function()
+  hs.application.open('iterm.app')
+end)
+hs.hotkey.bind({"ctrl"}, "f8", function()
+  hs.application.open('Google Chrome.app')
+end)
+
+hs.hotkey.bind({"ctrl"}, "f9", function()
+  hs.application.open('Finder.app')
+end)
+hs.hotkey.bind({"ctrl"}, "f11", function()
+  hs.application.open('Sublime Text.app')
+end)
+hs.hotkey.bind({"ctrl"}, "f12", function()
+  hs.application.open('IntelliJ IDEA.app')
+end)
+
+hs.hotkey.bind({"ctrl"}, "f15", function()
+  hs.application.open('Slack.app')
+end)
+
+
+hs.hotkey.bind({"ctrl", "shift"}, "F12", function()
+  print('hello')
+  hs.eventtap.rightClick(hs.mouse.absolutePosition())
+end)

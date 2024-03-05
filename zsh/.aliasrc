@@ -1,4 +1,8 @@
 #!/bin/zsh
+
+alias ccdak='cd ~/dev/projects/acloudguru/acg-ccdak/'
+
+alias vl='cd ~/dev/volumes/'
 alias sa='source ~/.aliasrc'
 alias va='vim ~/.aliasrc'
 alias ga='alias | grep'
@@ -12,6 +16,12 @@ alias cc='clear'
 alias ll='ls -lah'
 alias lr='ls -larth'
 alias pwdd='pwd | sed "s:.*/::"'
+
+### k8s                        ######
+alias k='kubectl --insecure-skip-tls-verify'
+#alias k=kubectl
+alias k8s='cd ~/dev/projects/k8s'
+alias acg='cd /Users/barry/dev/projects/k8s/acg-ckad-exam/acg'
 
 ### Git                        ######
 alias grso='git remote show origin'
